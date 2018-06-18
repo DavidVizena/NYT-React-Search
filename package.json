@@ -20,14 +20,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
+  "main": "server.js",
   "devDependencies": {
     "concurrently": "^3.5.1",
     "nodemon": "^1.17.5"
